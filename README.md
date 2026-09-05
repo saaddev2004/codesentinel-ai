@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div align="center">
 
 # 🛡️ CodeSentinel AI
@@ -153,3 +154,7 @@ Built by **Muhammad Saad** — Final-year Software Engineering student, as a por
 ## 📄 License
 
 This project is licensed under the MIT License.
+=======
+# codesentinel-ai
+AI-powered GitHub PR review App
+>>>>>>> 3fcd6c18ee6d73ac4762dd78a755c9f4df100cb8
