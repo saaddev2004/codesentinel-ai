@@ -11,8 +11,10 @@ PRIVATE_KEY_PATH = os.getenv("GITHUB_PRIVATE_KEY_PATH")
 
 
 def generate_jwt():
-    with open(PRIVATE_KEY_PATH, "r") as key_file:
-        private_key = key_file.read()
+    private_key = os.getenv("GITHUB_PRIVATE_KEY")
+    if not private_key:
+        with open(PRIVATE_KEY_PATH, "r") as key_file:
+            private_key = key_file.read()
 
     now = int(time.time())
     payload = {
