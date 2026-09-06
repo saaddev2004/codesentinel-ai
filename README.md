@@ -1,4 +1,5 @@
-<<<<<<< HEAD
+
+
 <div align="center">
 
 # 🛡️ CodeSentinel AI
