@@ -42,5 +42,26 @@ async def post_review_comment(installation_id, owner, repo, pull_number, commit_
         response = await client.post(url, headers=headers, json=data)
         if response.status_code >= 400:
             print(f"Failed to post comment on {path}:{line} - {response.status_code} - {response.text}")
+            response.raise_for_status()
         else:
             print(f"Posted comment on {path}:{line}")
+
+
+async def post_general_comment(installation_id, owner, repo, pull_number, body):
+    token = await get_installation_token(installation_id)
+
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/vnd.github+json",
+    }
+
+    url = f"https://api.github.com/repos/{owner}/{repo}/issues/{pull_number}/comments"
+
+    data = {"body": body}
+
+    async with httpx.AsyncClient() as client:
+        response = await client.post(url, headers=headers, json=data)
+        if response.status_code >= 400:
+            print(f"Failed to post general comment - {response.status_code} - {response.text}")
+        else:
+            print(f"Posted general comment (fallback)")

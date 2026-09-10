@@ -27,6 +27,7 @@ class Review(Base):
     repo = Column(String, nullable=False)
     pull_number = Column(Integer, nullable=False)
     filename = Column(String, nullable=False)
+    diff_hash = Column(String, nullable=True)
     created_at = Column(DateTime, default=lambda: datetime.utcnow())
 
 
